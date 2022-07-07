@@ -1,0 +1,80 @@
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  background-color: blueviolet;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  padding: 2rem 0;
+  margin: 0;
+}
+
+.site-header {
+  position: sticky;
+  text-align: center;
+  width: 100%;
+  background-color: #fff;
+}
+
+.post-list {
+  padding: 0 20vw;
+}
+
+.post-card {
+  border-radius: 2rem;
+  background-color: #fff;
+  padding: 1rem 2rem;
+  margin: 2rem;
+}
+
+.post-icon {
+  transition: 0.25s all;
+  border-radius: 0.25rem;
+  height: 2rem;
+  width: 2rem;
+  margin-right: 0.5rem;
+  padding: 0.25rem;
+}
+
+.post-icon:hover {
+  transition: 0.5s all;
+  background-color: blueviolet;
+  stroke: white;
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+}
+
+@media only screen and (max-width: 1200px) {
+  .post-list {
+    padding: 0 10vw;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .post-list {
+    padding: 0 2vw;
+  }
+}
+You'll receive a UI that looks like this, a simple and clean post collection.
+
+this image shows a screenshot of a few posts that have been fetched from jsonplaceholder
+
+Add a function to create the XML
+Let's take a look into the xml-file again:
+<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+</svg>
+It has a tag as a wrapper which includes the namespace and some attributes.
+Within, there's one (or several) tags that describes the shape of the SVG.
+Inside the browser's context, both of these are interpreted and rendered like html-tags.
+The last point also implies that said xml-tags can be created and composed like html-elements. An tag, for instance, can be created like this:
+// Create an element within the svg - namespace (NS)
+document.createElementNS('http://www.w3.org/2000/svg', 'svg');
